@@ -10,3 +10,8 @@ dotnet sln add frontend backend shared
 ```
 
 * Set the solution to have multiple start-up projects.
+
+
+
+
+It doesn't seem possible at 11/30/2020 to set the windows auth credentials in blazorwasm.
