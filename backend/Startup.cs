@@ -50,6 +50,12 @@ namespace backend
 
             app.UseAuthorization();
 
+            app.UseCors(policy =>
+                policy.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials());
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
