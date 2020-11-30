@@ -53,8 +53,7 @@ namespace backend
             app.UseCors(policy =>
                 policy.AllowAnyOrigin()
                 .AllowAnyMethod()
-                .AllowAnyHeader()
-                .AllowCredentials());
+                .AllowAnyHeader());
 
             app.UseEndpoints(endpoints =>
             {
