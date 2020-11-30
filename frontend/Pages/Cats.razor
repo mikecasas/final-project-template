@@ -1,0 +1,43 @@
+﻿@page "/cats"
+@inject HttpClient httpClient
+@using shared
+
+<h1>Cats</h1>
+
+
+@if (Kats == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+              
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Kats)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                 
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+
+    IEnumerable<Cat> Kats;
+
+    protected override async Task OnInitializedAsync()
+    {
+        string BaseApi = "http://localhost:36930/";
+
+        Kats = await httpClient.GetFromJsonAsync<IEnumerable<Cat>>($"{BaseApi}Cat");
+    }   
+}
